@@ -2,10 +2,8 @@ import { useState } from 'react'
 import Navbar from '../../../components/Navbar'
 import CASidebar from '../../../components/CA/CASidebar'
 import Card from '../../../components/Card'
-import { getCurrentUser } from '../../../utils/auth'
 
 const CATasks = () => {
-  const user = getCurrentUser()
   const [filter, setFilter] = useState<'all' | 'high' | 'medium' | 'low'>('all')
 
   // Mock tasks data

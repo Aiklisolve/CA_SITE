@@ -1,11 +1,8 @@
 import Navbar from '../../../components/Navbar'
 import CASidebar from '../../../components/CA/CASidebar'
 import Card from '../../../components/Card'
-import { getCurrentUser } from '../../../utils/auth'
 
 const CAReports = () => {
-  const user = getCurrentUser()
-
   // Mock reports data
   const monthlyStats = [
     { month: 'December 2024', services: 12, revenue: 45000, clients: 8 },

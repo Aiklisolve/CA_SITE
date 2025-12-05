@@ -12,12 +12,6 @@ interface InvoiceData {
   paidAmount?: number
 }
 
-interface DocumentData {
-  name: string
-  content?: string
-  type: 'invoice' | 'document'
-}
-
 // Generate Invoice PDF as downloadable content
 export const generateInvoicePDF = (invoice: InvoiceData) => {
   // Create a printable HTML content

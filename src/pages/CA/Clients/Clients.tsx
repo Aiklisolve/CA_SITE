@@ -2,11 +2,8 @@ import { Link } from 'react-router-dom'
 import Navbar from '../../../components/Navbar'
 import CASidebar from '../../../components/CA/CASidebar'
 import Card from '../../../components/Card'
-import { getCurrentUser } from '../../../utils/auth'
 
 const CAClients = () => {
-  const user = getCurrentUser()
-  
   // Mock client data
   const clients = [
     {

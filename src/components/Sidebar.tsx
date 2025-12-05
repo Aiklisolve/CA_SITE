@@ -1,10 +1,9 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { getCurrentUser, clearCurrentUser } from '../utils/auth'
+import { clearCurrentUser } from '../utils/auth'
 
 const Sidebar = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const user = getCurrentUser()
 
   const handleLogout = () => {
     clearCurrentUser()
