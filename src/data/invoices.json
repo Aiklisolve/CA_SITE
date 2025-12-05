@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "invoiceNumber": "INV-001",
+    "date": "2024-11-01",
+    "amount": 2500,
+    "status": "paid",
+    "statusColor": "green",
+    "service": "ITR Filing 2024",
+    "paidDate": "2024-11-05",
+    "lineItems": [
+      {
+        "description": "ITR Filing (Individual)",
+        "amount": 2000
+      },
+      {
+        "description": "Consultation",
+        "amount": 500
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "invoiceNumber": "INV-002",
+    "date": "2024-12-01",
+    "amount": 1500,
+    "status": "pending",
+    "statusColor": "red",
+    "service": "GST Monthly Return",
+    "paidDate": null,
+    "lineItems": [
+      {
+        "description": "GST Return Filing",
+        "amount": 1500
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "invoiceNumber": "INV-003",
+    "date": "2024-10-15",
+    "amount": 3000,
+    "status": "partially-paid",
+    "statusColor": "orange",
+    "service": "TDS Filing",
+    "paidDate": null,
+    "paidAmount": 1500,
+    "lineItems": [
+      {
+        "description": "TDS Return Filing",
+        "amount": 2500
+      },
+      {
+        "description": "Late Filing Fee",
+        "amount": 500
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "invoiceNumber": "INV-004",
+    "date": "2024-09-20",
+    "amount": 5000,
+    "status": "paid",
+    "statusColor": "green",
+    "service": "Annual Audit",
+    "paidDate": "2024-09-25",
+    "lineItems": [
+      {
+        "description": "Company Audit",
+        "amount": 4500
+      },
+      {
+        "description": "Report Preparation",
+        "amount": 500
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "invoiceNumber": "INV-005",
+    "date": "2024-08-10",
+    "amount": 2000,
+    "status": "paid",
+    "statusColor": "green",
+    "service": "GST Registration",
+    "paidDate": "2024-08-12",
+    "lineItems": [
+      {
+        "description": "GST Registration",
+        "amount": 2000
+      }
+    ]
+  }
+]
+

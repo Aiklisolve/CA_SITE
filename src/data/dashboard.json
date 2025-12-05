@@ -1,0 +1,55 @@
+{
+  "serviceStatus": {
+    "active": 3,
+    "pending": 1,
+    "completed": 2
+  },
+  "upcomingDueDates": [
+    {
+      "id": 1,
+      "service": "ITR Filing 2024",
+      "dueDate": "2025-03-15",
+      "priority": "high"
+    },
+    {
+      "id": 2,
+      "service": "GST Monthly Return",
+      "dueDate": "2025-01-10",
+      "priority": "medium"
+    }
+  ],
+  "pendingActions": [
+    {
+      "id": 1,
+      "action": "Upload bank statement",
+      "service": "ITR Filing 2024",
+      "deadline": "2025-01-15"
+    },
+    {
+      "id": 2,
+      "action": "Submit Form 16",
+      "service": "ITR Filing 2024",
+      "deadline": "2025-01-20"
+    }
+  ],
+  "recentDocuments": [
+    {
+      "id": 1,
+      "name": "ITR Acknowledgment.pdf",
+      "date": "2024-12-01",
+      "type": "generated"
+    },
+    {
+      "id": 2,
+      "name": "GST Return.pdf",
+      "date": "2024-11-28",
+      "type": "generated"
+    }
+  ],
+  "billingSummary": {
+    "totalInvoices": 5,
+    "paidAmount": 12500,
+    "pendingAmount": 4500
+  }
+}
+

@@ -1,0 +1,63 @@
+{
+  "clientUploaded": [
+    {
+      "id": 1,
+      "name": "Bank Statement.pdf",
+      "uploadDate": "2024-11-15",
+      "size": "2.4 MB",
+      "service": "ITR Filing 2024"
+    },
+    {
+      "id": 2,
+      "name": "Form 16.pdf",
+      "uploadDate": "2024-11-15",
+      "size": "1.1 MB",
+      "service": "ITR Filing 2024"
+    },
+    {
+      "id": 3,
+      "name": "PAN Card.pdf",
+      "uploadDate": "2024-10-20",
+      "size": "856 KB",
+      "service": "General"
+    },
+    {
+      "id": 4,
+      "name": "Aadhar Card.pdf",
+      "uploadDate": "2024-10-20",
+      "size": "924 KB",
+      "service": "General"
+    }
+  ],
+  "prideGenerated": [
+    {
+      "id": 5,
+      "name": "ITR Acknowledgment.pdf",
+      "generatedDate": "2024-12-01",
+      "size": "512 KB",
+      "service": "ITR Filing 2023"
+    },
+    {
+      "id": 6,
+      "name": "GST Return.pdf",
+      "generatedDate": "2024-11-28",
+      "size": "768 KB",
+      "service": "GST Monthly Return"
+    },
+    {
+      "id": 7,
+      "name": "TDS Certificate.pdf",
+      "generatedDate": "2024-11-15",
+      "size": "1.2 MB",
+      "service": "TDS Filing"
+    },
+    {
+      "id": 8,
+      "name": "Audit Report 2023.pdf",
+      "generatedDate": "2024-09-30",
+      "size": "3.5 MB",
+      "service": "Annual Audit"
+    }
+  ]
+}
+

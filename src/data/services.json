@@ -1,0 +1,125 @@
+[
+  {
+    "id": 1,
+    "title": "ITR Filing 2024",
+    "status": "in-progress",
+    "statusColor": "yellow",
+    "dueDate": "2025-03-15",
+    "assignedCA": "CA Rahul Sharma",
+    "description": "Income Tax Return filing for Financial Year 2023-24",
+    "charge": 2500,
+    "paymentStatus": "paid",
+    "timeline": [
+      {
+        "step": "Documents Received",
+        "status": "completed",
+        "date": "2024-11-15"
+      },
+      {
+        "step": "Processing",
+        "status": "in-progress",
+        "date": "2024-11-20"
+      },
+      {
+        "step": "Filing",
+        "status": "pending",
+        "date": null
+      },
+      {
+        "step": "Acknowledgment",
+        "status": "pending",
+        "date": null
+      }
+    ],
+    "documents": [
+      {
+        "id": 1,
+        "name": "Form 16.pdf",
+        "type": "uploaded",
+        "uploadDate": "2024-11-15"
+      },
+      {
+        "id": 2,
+        "name": "Bank Statement.pdf",
+        "type": "uploaded",
+        "uploadDate": "2024-11-15"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "GST Monthly Return",
+    "status": "pending-docs",
+    "statusColor": "orange",
+    "dueDate": "2025-01-10",
+    "assignedCA": "CA Priya Verma",
+    "description": "GST return filing for December 2024",
+    "charge": 1500,
+    "paymentStatus": "pending",
+    "timeline": [
+      {
+        "step": "Invoice Generated",
+        "status": "completed",
+        "date": "2024-12-01"
+      },
+      {
+        "step": "Payment",
+        "status": "pending",
+        "date": null
+      },
+      {
+        "step": "Documents Upload",
+        "status": "pending",
+        "date": null
+      },
+      {
+        "step": "Processing",
+        "status": "pending",
+        "date": null
+      }
+    ],
+    "documents": []
+  },
+  {
+    "id": 3,
+    "title": "TDS Filing",
+    "status": "completed",
+    "statusColor": "green",
+    "dueDate": "2024-11-30",
+    "assignedCA": "CA Anil Kumar",
+    "description": "TDS return filing for Q2 FY 2024-25",
+    "charge": 3000,
+    "paymentStatus": "paid",
+    "timeline": [
+      {
+        "step": "Documents Received",
+        "status": "completed",
+        "date": "2024-10-15"
+      },
+      {
+        "step": "Processing",
+        "status": "completed",
+        "date": "2024-10-20"
+      },
+      {
+        "step": "Filing",
+        "status": "completed",
+        "date": "2024-11-10"
+      },
+      {
+        "step": "Acknowledgment",
+        "status": "completed",
+        "date": "2024-11-15"
+      }
+    ],
+    "documents": [
+      {
+        "id": 3,
+        "name": "TDS Certificate.pdf",
+        "type": "generated",
+        "uploadDate": "2024-11-15"
+      }
+    ]
+  }
+]
+
