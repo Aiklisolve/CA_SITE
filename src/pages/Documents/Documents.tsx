@@ -2,6 +2,7 @@ import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
 import Card from '../../components/Card'
 import documentsData from '../../data/documents.json'
+import { downloadDocument } from '../../utils/pdfGenerator'
 
 const Documents = () => {
   return (
@@ -47,11 +48,18 @@ const Documents = () => {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button className="bg-white hover:bg-gray-50 border-2 border-pride-red text-pride-red font-semibold px-4 py-2 rounded-lg transition-all">
+                    <button 
+                      onClick={() => window.open(`/documents/${doc.name}`, '_blank')}
+                      className="bg-white hover:bg-gray-50 border-2 border-pride-red text-pride-red font-semibold px-4 py-2 rounded-lg transition-all"
+                    >
                       View
                     </button>
-                    <button className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-4 py-2 rounded-lg transition-all">
-                      Download
+                    <button 
+                      onClick={() => downloadDocument(doc.name)}
+                      className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+                    >
+                      <span>📥</span>
+                      <span>Download</span>
                     </button>
                   </div>
                 </div>
@@ -102,11 +110,18 @@ const Documents = () => {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button className="bg-white hover:bg-gray-50 border-2 border-pride-red text-pride-red font-semibold px-4 py-2 rounded-lg transition-all">
+                    <button 
+                      onClick={() => window.open(`/documents/${doc.name}`, '_blank')}
+                      className="bg-white hover:bg-gray-50 border-2 border-pride-red text-pride-red font-semibold px-4 py-2 rounded-lg transition-all"
+                    >
                       View
                     </button>
-                    <button className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-4 py-2 rounded-lg transition-all">
-                      Download
+                    <button 
+                      onClick={() => downloadDocument(doc.name)}
+                      className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+                    >
+                      <span>📥</span>
+                      <span>Download</span>
                     </button>
                   </div>
                 </div>

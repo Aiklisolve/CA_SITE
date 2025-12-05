@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar'
 import Card from '../../components/Card'
 import StatusBadge from '../../components/StatusBadge'
 import invoicesData from '../../data/invoices.json'
+import { generateInvoicePDF } from '../../utils/pdfGenerator'
 
 const InvoiceDetail = () => {
   const { id } = useParams()
@@ -57,10 +58,19 @@ const InvoiceDetail = () => {
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">Invoice {invoice.invoiceNumber}</h1>
                 <p className="text-gray-600">{invoice.service}</p>
               </div>
-              <StatusBadge 
-                status={getStatusText(invoice.status)} 
-                color={invoice.statusColor as any} 
-              />
+              <div className="flex items-center gap-3">
+                <StatusBadge 
+                  status={getStatusText(invoice.status)} 
+                  color={invoice.statusColor as any} 
+                />
+                <button
+                  onClick={() => generateInvoicePDF(invoice)}
+                  className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-6 py-2 rounded-lg transition-all flex items-center gap-2 shadow-md hover:shadow-lg"
+                >
+                  <span>📥</span>
+                  <span>Download PDF</span>
+                </button>
+              </div>
             </div>
           </div>
 

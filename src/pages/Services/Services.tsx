@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar'
 import Card from '../../components/Card'
 import StatusBadge from '../../components/StatusBadge'
 import servicesData from '../../data/services.json'
+import { exportServicesToCSV, exportServicesToPDF } from '../../utils/exportUtils'
 
 const Services = () => {
   const getStatusText = (status: string) => {
@@ -22,9 +23,29 @@ const Services = () => {
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-8">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">My Services</h1>
-            <p className="text-gray-600">Track and manage all your CA services</p>
+          <div className="mb-8 flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">My Services</h1>
+              <p className="text-gray-600">Track and manage all your CA services</p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => exportServicesToCSV(servicesData as any)}
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-lg transition-all flex items-center gap-2"
+              >
+                <span>📊</span>
+                <span>Export CSV</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => exportServicesToPDF(servicesData as any)}
+                className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-6 py-2 rounded-lg transition-all flex items-center gap-2"
+              >
+                <span>📄</span>
+                <span>Export PDF</span>
+              </button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
@@ -79,6 +100,13 @@ const Services = () => {
                       className="btn-primary text-center whitespace-nowrap"
                     >
                       View Details
+                    </Link>
+                    <Link 
+                      to={`/services/${service.id}#documents`}
+                      className="bg-white hover:bg-gray-50 border-2 border-pride-red text-pride-red font-semibold py-2 px-6 rounded-lg transition-all text-center whitespace-nowrap flex items-center justify-center gap-2"
+                    >
+                      <span>📄</span>
+                      <span>Documents</span>
                     </Link>
                     {service.paymentStatus === 'pending' && (
                       <Link 

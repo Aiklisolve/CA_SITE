@@ -1,13 +1,26 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
 import Card from '../../components/Card'
 import StatusBadge from '../../components/StatusBadge'
 import servicesData from '../../data/services.json'
+import { downloadDocument } from '../../utils/pdfGenerator'
 
 const ServiceDetail = () => {
   const { id } = useParams()
+  const location = useLocation()
+  const documentsRef = useRef<HTMLDivElement>(null)
   const service = servicesData.find(s => s.id === Number(id))
+
+  // Scroll to documents section if hash is present
+  useEffect(() => {
+    if (location.hash === '#documents' && documentsRef.current) {
+      setTimeout(() => {
+        documentsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    }
+  }, [location.hash])
 
   if (!service) {
     return (
@@ -195,7 +208,7 @@ const ServiceDetail = () => {
           </Card>
 
           {/* Documents Section */}
-          <Card>
+          <Card id="documents" ref={documentsRef}>
             <div className="flex items-center gap-3 mb-6">
               <div className="bg-purple-50 p-3 rounded-lg">
                 <span className="text-3xl">📎</span>
@@ -221,8 +234,17 @@ const ServiceDetail = () => {
                         </p>
                       </div>
                     </div>
-                    <button className="text-pride-red hover:text-pride-dark-red font-semibold">
-                      Download
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        downloadDocument(doc.name)
+                      }}
+                      className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+                    >
+                      <span>📥</span>
+                      <span>Download</span>
                     </button>
                   </div>
                 ))}
@@ -234,7 +256,28 @@ const ServiceDetail = () => {
             )}
 
             <div className="mt-4 pt-4 border-t">
-              <button className="btn-secondary w-full">
+              <input
+                type="file"
+                id={`file-input-${service.id}`}
+                accept=".pdf,.jpg,.jpeg,.png"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0]
+                  if (file) {
+                    // In a real app, this would upload the file
+                    console.log('File selected:', file.name)
+                    alert(`File "${file.name}" selected. In production, this would upload to the server.`)
+                  }
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  const fileInput = document.getElementById(`file-input-${service.id}`)
+                  fileInput?.click()
+                }}
+                className="btn-secondary w-full"
+              >
                 📤 Upload Document
               </button>
             </div>

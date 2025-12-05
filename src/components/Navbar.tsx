@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { getCurrentUser, clearCurrentUser } from '../utils/auth'
 
 interface NavbarProps {
   isPortal?: boolean
@@ -6,10 +7,15 @@ interface NavbarProps {
 
 const Navbar = ({ isPortal = false }: NavbarProps) => {
   const navigate = useNavigate()
+  const user = getCurrentUser()
 
   const handleLogout = () => {
-    // In a real app, you'd clear auth tokens/session here
+    clearCurrentUser()
     navigate('/')
+  }
+
+  const getInitials = (name: string) => {
+    return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
   }
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -42,11 +48,13 @@ const Navbar = ({ isPortal = false }: NavbarProps) => {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-pride-red text-white rounded-full flex items-center justify-center font-semibold">
-                JD
+                {user ? getInitials(user.name) : 'U'}
               </div>
               <div className="hidden md:block">
-                <p className="text-sm font-semibold">John Doe</p>
-                <p className="text-xs text-gray-500">Client ID: #12345</p>
+                <p className="text-sm font-semibold">{user?.name || 'User'}</p>
+                <p className="text-xs text-gray-500">
+                  {user?.role === 'ca' ? `${user.caId} - ${user.designation}` : `Client ID: ${user?.clientId || '#00000'}`}
+                </p>
               </div>
             </div>
             <button

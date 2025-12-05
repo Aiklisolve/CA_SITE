@@ -27,6 +27,34 @@
       "uploadDate": "2024-10-20",
       "size": "924 KB",
       "service": "General"
+    },
+    {
+      "id": 9,
+      "name": "Salary Slips.pdf",
+      "uploadDate": "2024-11-10",
+      "size": "1.8 MB",
+      "service": "ITR Filing 2024"
+    },
+    {
+      "id": 10,
+      "name": "Investment Proof.pdf",
+      "uploadDate": "2024-11-12",
+      "size": "1.5 MB",
+      "service": "ITR Filing 2024"
+    },
+    {
+      "id": 11,
+      "name": "Business License.pdf",
+      "uploadDate": "2024-10-05",
+      "size": "645 KB",
+      "service": "GST Registration"
+    },
+    {
+      "id": 12,
+      "name": "Purchase Bills.pdf",
+      "uploadDate": "2024-11-25",
+      "size": "3.2 MB",
+      "service": "GST Monthly Return"
     }
   ],
   "prideGenerated": [
@@ -57,6 +85,41 @@
       "generatedDate": "2024-09-30",
       "size": "3.5 MB",
       "service": "Annual Audit"
+    },
+    {
+      "id": 13,
+      "name": "GST Registration Certificate.pdf",
+      "generatedDate": "2024-08-15",
+      "size": "890 KB",
+      "service": "GST Registration"
+    },
+    {
+      "id": 14,
+      "name": "Tax Computation Sheet.pdf",
+      "generatedDate": "2024-12-01",
+      "size": "1.1 MB",
+      "service": "ITR Filing 2024"
+    },
+    {
+      "id": 15,
+      "name": "Compliance Report Q3 2024.pdf",
+      "generatedDate": "2024-10-05",
+      "size": "2.3 MB",
+      "service": "Compliance"
+    },
+    {
+      "id": 16,
+      "name": "Form 26AS.pdf",
+      "generatedDate": "2024-11-20",
+      "size": "956 KB",
+      "service": "ITR Filing 2024"
+    },
+    {
+      "id": 17,
+      "name": "TDS Form 16A.pdf",
+      "generatedDate": "2024-11-18",
+      "size": "734 KB",
+      "service": "TDS Filing"
     }
   ]
 }

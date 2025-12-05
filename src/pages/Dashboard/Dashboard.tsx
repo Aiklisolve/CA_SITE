@@ -4,6 +4,7 @@ import Card from '../../components/Card'
 import StatusBadge from '../../components/StatusBadge'
 import dashboardData from '../../data/dashboard.json'
 import { Link } from 'react-router-dom'
+import { downloadDocument } from '../../utils/pdfGenerator'
 
 const Dashboard = () => {
   return (
@@ -182,7 +183,10 @@ const Dashboard = () => {
                         </p>
                       </div>
                     </div>
-                    <button className="text-pride-red hover:text-pride-dark-red font-semibold text-sm">
+                    <button 
+                      onClick={() => downloadDocument(doc.name)}
+                      className="text-pride-red hover:text-pride-dark-red font-semibold text-sm"
+                    >
                       Download
                     </button>
                   </div>

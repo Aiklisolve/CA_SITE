@@ -1,16 +1,31 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { authenticateUser, getRoleBasedRedirect } from '../../utils/loginAuth'
 
 const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Static demo - no real authentication
-    navigate('/dashboard')
+    setError('')
+    setLoading(true)
+
+    // Small delay for better UX
+    setTimeout(() => {
+      const result = authenticateUser(email, password)
+      if (result.success && result.user) {
+        const redirectPath = getRoleBasedRedirect(result.user.role)
+        navigate(redirectPath)
+      } else {
+        setError(result.error || 'Invalid credentials')
+        setLoading(false)
+      }
+    }, 500)
   }
 
   return (
@@ -21,22 +36,35 @@ const Login = () => {
           <div className="bg-white text-pride-red font-bold text-3xl px-6 py-3 rounded-lg inline-block mb-4">
             PRIDE
           </div>
-          <h2 className="text-2xl font-bold mb-2">Client Portal</h2>
+          <h2 className="text-2xl font-bold mb-2">PRIDE Portal</h2>
           <p className="text-white/90">Sign in to access your account</p>
         </div>
 
-        {/* Dummy Credentials Info */}
+        {/* Demo Credentials Info */}
         <div className="px-8 pt-6 pb-0">
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-6">
+          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-4">
             <div className="flex items-start gap-3">
               <span className="text-2xl">💡</span>
               <div className="flex-1">
-                <p className="font-semibold text-blue-900 mb-2">Demo Credentials</p>
-                <div className="space-y-1 text-sm text-blue-800">
-                  <p><strong>Email:</strong> demo@pride.ca</p>
-                  <p><strong>Password:</strong> demo123</p>
+                <p className="font-semibold text-blue-900 mb-3">Demo Credentials</p>
+                
+                <div className="mb-3">
+                  <p className="text-xs font-bold text-blue-900 mb-1">👤 CUSTOMERS:</p>
+                  <div className="space-y-1 text-xs text-blue-800 ml-2">
+                    <p>• customer1@pride.ca / customer123</p>
+                    <p>• customer2@pride.ca / customer123</p>
+                    <p>• customer3@pride.ca / customer123</p>
+                  </div>
                 </div>
-                <p className="text-xs text-blue-700 mt-2 italic">You can use any credentials to login</p>
+
+                <div>
+                  <p className="text-xs font-bold text-blue-900 mb-1">👨‍💼 CHARTERED ACCOUNTANTS:</p>
+                  <div className="space-y-1 text-xs text-blue-800 ml-2">
+                    <p>• rajesh.kumar@pride.ca / ca123</p>
+                    <p>• sneha.desai@pride.ca / ca123</p>
+                    <p>• vijay.singh@pride.ca / ca123</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -74,6 +102,15 @@ const Login = () => {
             />
           </div>
 
+          {error && (
+            <div className="mb-4 bg-red-50 border-2 border-red-200 rounded-lg p-3">
+              <p className="text-red-800 text-sm font-semibold flex items-center gap-2">
+                <span>⚠️</span>
+                {error}
+              </p>
+            </div>
+          )}
+
           <div className="flex items-center justify-between mb-6">
             <label className="flex items-center">
               <input type="checkbox" className="mr-2" />
@@ -84,20 +121,36 @@ const Login = () => {
             </a>
           </div>
 
-          <button type="submit" className="btn-primary w-full mb-4">
-            Sign In
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="btn-primary w-full mb-4 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? 'Signing in...' : 'Sign In'}
           </button>
           
-          <button
-            type="button"
-            onClick={() => {
-              setEmail('demo@pride.ca')
-              setPassword('demo123')
-            }}
-            className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-6 rounded-lg transition-all mb-4 text-sm"
-          >
-            🔄 Fill Demo Credentials
-          </button>
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <button
+              type="button"
+              onClick={() => {
+                setEmail('customer1@pride.ca')
+                setPassword('customer123')
+              }}
+              className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-3 rounded-lg transition-all text-xs"
+            >
+              👤 Fill Customer
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail('rajesh.kumar@pride.ca')
+                setPassword('ca123')
+              }}
+              className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-3 rounded-lg transition-all text-xs"
+            >
+              👨‍💼 Fill CA
+            </button>
+          </div>
 
           <div className="text-center">
             <p className="text-gray-600 text-sm">

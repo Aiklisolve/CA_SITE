@@ -91,6 +91,67 @@
         "amount": 2000
       }
     ]
+  },
+  {
+    "id": 6,
+    "invoiceNumber": "INV-006",
+    "date": "2024-12-05",
+    "amount": 3500,
+    "status": "pending",
+    "statusColor": "red",
+    "service": "Compliance Services Q4",
+    "paidDate": null,
+    "lineItems": [
+      {
+        "description": "Quarterly Compliance Filing",
+        "amount": 3000
+      },
+      {
+        "description": "Advisory Consultation",
+        "amount": 500
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "invoiceNumber": "INV-007",
+    "date": "2024-11-20",
+    "amount": 1800,
+    "status": "paid",
+    "statusColor": "green",
+    "service": "GST Monthly Return - October",
+    "paidDate": "2024-11-22",
+    "lineItems": [
+      {
+        "description": "GST Return Filing (GSTR-3B)",
+        "amount": 1500
+      },
+      {
+        "description": "Late Fee Waiver Assistance",
+        "amount": 300
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "invoiceNumber": "INV-008",
+    "date": "2024-10-01",
+    "amount": 4200,
+    "status": "partially-paid",
+    "statusColor": "orange",
+    "service": "Annual Compliance Package",
+    "paidDate": null,
+    "paidAmount": 2000,
+    "lineItems": [
+      {
+        "description": "Annual Return Filing",
+        "amount": 3500
+      },
+      {
+        "description": "Tax Planning Consultation",
+        "amount": 700
+      }
+    ]
   }
 ]
 

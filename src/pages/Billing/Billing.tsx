@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar'
 import Card from '../../components/Card'
 import StatusBadge from '../../components/StatusBadge'
 import invoicesData from '../../data/invoices.json'
+import { generateInvoicePDF } from '../../utils/pdfGenerator'
 
 const Billing = () => {
   const totalPaid = invoicesData
@@ -137,13 +138,20 @@ const Billing = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap">
                     <Link 
                       to={`/billing/${invoice.id}`}
                       className="bg-white hover:bg-gray-50 border-2 border-pride-red text-pride-red font-semibold px-4 py-2 rounded-lg transition-all"
                     >
                       View Details
                     </Link>
+                    <button
+                      onClick={() => generateInvoicePDF(invoice)}
+                      className="bg-white hover:bg-gray-50 border-2 border-gray-300 text-gray-700 hover:border-pride-red hover:text-pride-red font-semibold px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+                    >
+                      <span>📥</span>
+                      <span>PDF</span>
+                    </button>
                     {(invoice.status === 'pending' || invoice.status === 'partially-paid') && (
                       <button className="bg-pride-red hover:bg-pride-dark-red text-white font-semibold px-4 py-2 rounded-lg transition-all">
                         Pay Now

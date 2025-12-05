@@ -1,7 +1,15 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { getCurrentUser, clearCurrentUser } from '../utils/auth'
 
 const Sidebar = () => {
   const location = useLocation()
+  const navigate = useNavigate()
+  const user = getCurrentUser()
+
+  const handleLogout = () => {
+    clearCurrentUser()
+    navigate('/')
+  }
 
   const menuItems = [
     { path: '/dashboard', icon: '📊', label: 'Dashboard' },
@@ -37,8 +45,18 @@ const Sidebar = () => {
       <div className="mt-8 p-4 bg-red-50 rounded-lg border border-red-100">
         <p className="text-sm font-semibold text-pride-dark-red mb-2">Need Help?</p>
         <p className="text-xs text-gray-600 mb-3">Contact your assigned CA for assistance</p>
-        <button className="w-full bg-pride-red hover:bg-pride-dark-red text-white text-sm py-2 rounded-lg transition-colors">
+        <button className="w-full bg-pride-red hover:bg-pride-dark-red text-white text-sm py-2 rounded-lg transition-colors mb-2">
           Contact Support
+        </button>
+      </div>
+
+      <div className="mt-4 pt-4 border-t">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg transition-all"
+        >
+          <span>🚪</span>
+          <span>Logout</span>
         </button>
       </div>
     </aside>

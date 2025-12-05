@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "email": "customer1@pride.ca",
+    "password": "customer123",
+    "role": "customer",
+    "name": "John Doe",
+    "clientId": "#12345",
+    "assignedCA": {
+      "id": 1,
+      "name": "Rajesh Kumar",
+      "email": "rajesh.kumar@pride.ca"
+    }
+  },
+  {
+    "id": 2,
+    "email": "customer2@pride.ca",
+    "password": "customer123",
+    "role": "customer",
+    "name": "Priya Sharma",
+    "clientId": "#12346",
+    "assignedCA": {
+      "id": 1,
+      "name": "Rajesh Kumar",
+      "email": "rajesh.kumar@pride.ca"
+    }
+  },
+  {
+    "id": 3,
+    "email": "customer3@pride.ca",
+    "password": "customer123",
+    "role": "customer",
+    "name": "Amit Patel",
+    "clientId": "#12347",
+    "assignedCA": {
+      "id": 2,
+      "name": "Sneha Desai",
+      "email": "sneha.desai@pride.ca"
+    }
+  },
+  {
+    "id": 4,
+    "email": "rajesh.kumar@pride.ca",
+    "password": "ca123",
+    "role": "ca",
+    "name": "Rajesh Kumar",
+    "caId": "CA-001",
+    "designation": "Senior Chartered Accountant",
+    "assignedClients": [1, 2]
+  },
+  {
+    "id": 5,
+    "email": "sneha.desai@pride.ca",
+    "password": "ca123",
+    "role": "ca",
+    "name": "Sneha Desai",
+    "caId": "CA-002",
+    "designation": "Chartered Accountant",
+    "assignedClients": [3]
+  },
+  {
+    "id": 6,
+    "email": "vijay.singh@pride.ca",
+    "password": "ca123",
+    "role": "ca",
+    "name": "Vijay Singh",
+    "caId": "CA-003",
+    "designation": "Senior Chartered Accountant",
+    "assignedClients": []
+  }
+]
+
